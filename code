@@ -1,0 +1,184 @@
+#include<stdio.h>
+#include<string.h>
+#include <windows.h>
+
+void giveyourvote();
+void votecount();
+void leadingthewholeprocess();
+void declarewinner();
+
+
+#define PARTICIPANT1 "Bashar"
+#define PARTICIPANT2 "Ela"
+#define PARTICIPANT3 "Beeva"
+#define PARTICIPANT4 "Mitu"
+
+int votecount1=0,votecount2=0,votecount3=0,votecount4=0,unnecessaryvote=0;
+int main()
+
+{
+    system("COLOR 8A");
+  int choice;
+
+do{
+    printf("\n\n\n\n ***Welcome to the Class Representative Election of Computer Engineering Department Section-11***\n\n");
+    printf("\n 1.Give your vote according to your preference.");
+    printf("\n 2.Vote Count.");
+    printf("\n 3.Show us who is the leading one.");
+    printf("\n 4.Declare the winner.");
+    printf("\n 0.Exit\n\n\n");
+    printf("Choose an option to ensure your job: ");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+  case 1:
+      {char d[20];
+     printf("\nEnter username: ");
+scanf("%s",&d);
+int password;
+printf("\nEnter your password: ");
+scanf("%d",&password);
+if((strcmp(d,"Bashar")==0)&&password==448){
+giveyourvote();}
+else if((strcmp(d,"Ela")==0)&&(password==447)){giveyourvote();}
+
+else if((strcmp(d,"Beeva")==0)&&(password==413)){giveyourvote();}
+else if((strcmp(d,"Mitu")==0)&&(password==408)){giveyourvote();}
+else if((strcmp(d,"Dinar")==0)&&(password==414)){giveyourvote();}
+else if((strcmp(d,"Shakib")==0)&&(password==417)){giveyourvote();}
+else if((strcmp(d,"Yeamin")==0)&&(password==410)){giveyourvote();}
+
+else if((strcmp(d,"Masum")==0)&&(password==422)){giveyourvote();}
+else if((strcmp(d,"Mahin")==0)&&(password==421)){giveyourvote();}
+   else{printf("Wrong username or password");}   }
+        break;
+
+    case 2: {char d[20];
+     printf("\nEnter ADMIN username: ");
+scanf("%s",&d);
+int password;
+printf("\nEnter ADMIN password: ");
+scanf("%d",&password);
+if((strcmp(d,"Bashar")==0)&&(password==2023448)){
+        votecount();}
+
+else {printf("wrong username or password");}}
+break;
+    case 3:
+        {char d[20];
+     printf("\nEnter ADMIN username: ");
+scanf("%s",&d);
+int password;
+printf("\nEnter ADMIN password: ");
+scanf("%d",&password);
+if((strcmp(d,"Bashar")==0)&&(password==2023448)){
+       leadingthewholeprocess(); }
+
+else {printf("wrong username or password");}}
+
+
+
+        break;
+        case 4: declarewinner();
+        break;
+    default:
+        printf("...");
+    }
+} while(choice!=0);
+
+
+
+  return 0;
+  }
+
+void giveyourvote()
+{
+    int choice;
+
+    printf("\n\n *Choose your preferred participant.* \n\n");
+    printf("\n 1.%s",PARTICIPANT1);
+    printf("\n 2.%s",PARTICIPANT2);
+    printf("\n 3.%s",PARTICIPANT3);
+    printf("\n 4.%s",PARTICIPANT4);
+    printf("\n 5.%s",unnecessaryvote);
+
+printf("\n\n Input your choice(1-5):");
+scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+        votecount1++ ;
+        break;
+    case 2:
+        votecount2++ ;
+        break;
+    case 3:
+        votecount3++ ;
+        break;
+    case 4:
+        votecount4++ ;
+        break;
+    case 5:
+        unnecessaryvote++ ;
+        break;
+
+    default:
+        printf("Error.You are supposed to choice (1-5)");
+
+    }
+    printf("\n\n ****We do appreciate your vote.****\n\n");
+
+}
+void votecount()
+{
+
+
+    printf("\n\n **Voting Statistics**");
+    printf("\n %s=%d",PARTICIPANT1,votecount1);
+    printf("\n %s=%d",PARTICIPANT2,votecount2);
+    printf("\n %s=%d",PARTICIPANT3,votecount3);
+    printf("\n %s=%d",PARTICIPANT4,votecount4);
+    printf("\n %s=%d","spoiled one",unnecessaryvote);
+}
+void leadingthewholeprocess()
+{
+    printf("\n\n ####PARTICIPANTS LEADING THE JOURNEY####\n\n");
+
+    if(votecount1>votecount2 && votecount1>votecount3 && votecount1>votecount4)
+    {
+        printf("[%s] \n\n",PARTICIPANT1);
+    }
+    else if(votecount2>votecount1 && votecount2>votecount3 && votecount2>votecount4)
+    {
+        printf("[%s] \n\n",PARTICIPANT2);
+    }
+    else if(votecount3>votecount1 && votecount3>votecount2 && votecount3>votecount4)
+    {
+        printf("[%s] \n\n",PARTICIPANT3);
+    }
+    else if(votecount4>votecount1 && votecount4>votecount2 && votecount4>votecount3)
+    {
+        printf("[%s] \n\n",PARTICIPANT4);
+    }
+    else {
+        printf("**Caution!!! No-win situation!!! Stay with us for the final result.**\n");
+    }
+    int total=votecount1+votecount2+votecount3+votecount4;
+    float percentage=100/total;
+    printf("PARTICIPANT1 %0.2f%% \n" ,percentage*votecount1);
+    printf("PARTICIPANT2 %0.2f%% \n" ,percentage*votecount2);
+    printf("PARTICIPANT3 %0.2f%% \n" ,percentage*votecount3);
+    printf("PARTICIPANT4 %0.2f%% \n" ,percentage*votecount4);
+}
+
+void declarewinner()
+{
+if(votecount1>votecount2 && votecount1>votecount3 && votecount1>votecount4)
+    {
+        printf("Congratulations!!!! Winner is %s with %d votes. \n",PARTICIPANT1,votecount1);
+    }
+    else if(votecount2>votecount1 && votecount2>votecount3 && votecount2>votecount4)
+    {
+        printf("Congratulations!!!! Winner is %s with %d votes. \n",PARTICIPANT2,votecount2);
+    }
+}
